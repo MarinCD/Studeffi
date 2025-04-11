@@ -1,16 +1,15 @@
 <?php
 session_start();
 require 'includes/db.php';
+include 'includes/header.php';
 
-// Ensure the user is logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
 
-// Fetch electricity meters from the database
 $sql = "SELECT id, nom_proprietaire, numero_voie, nom_voie, code_postal, ville, code_insee FROM compteurs";
-$stmt = $conn->query($sql);
+$stmt = $pdo->query($sql);
 $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -24,11 +23,10 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main class="container pt-3">
         <h1 class="text-start text-dark">
             <i class="bi bi-lightning"></i> Gestion des compteurs d'électricité 
-            <a href="compteur/create.php"><i class="bi bi-plus-circle-fill text-success"></i></a>
+            <a href="./create.php"><i class="bi bi-plus-circle-fill text-success"></i></a>
         </h1>
         <hr>
 
-        <!-- Notification System -->
         <?php
         $notifs = [
             "successEdit" => [
@@ -40,14 +38,13 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 "text" => "Erreur durant la modification."
             ],
         ];
-        if (isset($_GET['notif']) && array_key_exists($_GET['notif'], $notifs) && !empty($_GET['notif'])) {
+        if (isset($_GET['notif']) && array_key_exists($_GET['notif'], $notifs)) {
         ?>
             <div class="alert alert-<?php echo $notifs[$_GET['notif']]["couleur"]; ?>" role="alert">
                 <i class="bi bi-info-circle"></i>&nbsp;<?php echo $notifs[$_GET['notif']]["text"]; ?>
             </div>
         <?php } ?>
 
-        <!-- Meters Table -->
         <table class="table table-striped table-bordered mt-3">
             <thead class="table-dark text-center">
                 <tr>
