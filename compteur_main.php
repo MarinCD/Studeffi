@@ -12,18 +12,11 @@ $sql = "SELECT id, nom_proprietaire, numero_voie, nom_voie, code_postal, ville, 
 $stmt = $pdo->query($sql);
 $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
+
     <main class="container pt-3">
         <h1 class="text-start text-dark">
             <i class="bi bi-lightning"></i> Gestion des compteurs d'électricité 
-            <a href="./create.php"><i class="bi bi-plus-circle-fill text-success"></i></a>
+            <a href="./compteur_ajout_test.php"><i class="bi bi-plus-circle-fill text-success"></i></a>
         </h1>
         <hr>
 
@@ -36,6 +29,22 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
             "failEdit" => [
                 "couleur" => "danger",
                 "text" => "Erreur durant la modification."
+            ],
+            "successAdd" => [
+                "couleur" => "success",
+                "text" => "Compteur ajouté avec succès."
+            ],
+            "failAdd" => [
+                "couleur" => "danger",
+                "text" => "Erreur durant l'ajout"
+            ],
+            "successDelete" => [
+                "couleur" => "success",
+                "text" => "Compteur supprimé avec succès."
+            ],
+            "failDelete" => [
+                "couleur" => "danger",
+                "text" => "Erreur durant la suppression"
             ],
         ];
         if (isset($_GET['notif']) && array_key_exists($_GET['notif'], $notifs)) {
@@ -70,12 +79,12 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars(strtoupper($meter['ville'])); ?></td>
                     <td><?php echo htmlspecialchars($meter['code_insee']); ?></td>
                     <td class="text-center">
-                        <a href="compteur/update.php?id=<?php echo $meter['id']; ?>" class="text-info">
+                        <a href="compteur_modif.php?id=<?php echo $meter['id']; ?>" class="text-info">
                             <i class="bi bi-pencil-fill h4"></i>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a href="compteur/delete.php?id=<?php echo $meter['id']; ?>" class="text-danger">
+                        <a href="compteur_delete.php?id=<?php echo $meter['id']; ?>" class="text-danger">
                             <i class="bi bi-x-circle-fill h4"></i>
                         </a>
                     </td>
@@ -84,6 +93,3 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tbody>
         </table>
     </main>
-
-</body>
-</html>

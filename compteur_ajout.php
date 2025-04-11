@@ -1,6 +1,5 @@
 <?php
-session_start();
-require 'includes/db.php';
+require './ad_estconnect_exe.php';
 include 'includes/header.php';
 
 ?>
@@ -9,7 +8,7 @@ include 'includes/header.php';
         <i class="bi bi-lightning"></i> Gestion des compteurs - Ajout d'un compteur
     </h1>
     <hr>
-    <form action="ad_compteur_ajout_exe.php" method="POST">
+    <form action="compteur_ajout_exe.php" method="POST">
         <div class="row mt-3">
             <div class="col">
                 <label for="nomProprietaire">Nom du propriétaire</label>

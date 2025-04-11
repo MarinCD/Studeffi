@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         echo "Bienvenue, " . htmlspecialchars($user['username']) . " !";
-        header("Location: dashboard.php"); exit;
+        header("Location: compteur_main.php"); exit;
     } else {
         // Erreur de connexion
         echo "Nom d'utilisateur ou mot de passe incorrect.";
@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+<main class="container pt-3">
     <h2>Connexion</h2>
     <form method="post" action="">
         <label>Nom d'utilisateur :</label><br>
@@ -48,5 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Se connecter</button>
     </form>
+</main>
 </body>
 </html>

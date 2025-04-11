@@ -6,5 +6,5 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
-header('Location: dashboard.php');
+header('Location: compteur_main.php');
 ?>
