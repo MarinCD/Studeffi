@@ -13,7 +13,7 @@
 ?>
 <main class="container pt-3">
     <h1 class="text-start text-dark">
-        <i class="bi bi-pencil-square"></i>&nbsp;Gestion des compteurs - Modification de <?php echo htmlspecialchars($compteur['nom_proprietaire']); ?>
+        &nbsp;Gestion des compteurs - Modification de <?php echo htmlspecialchars($compteur['nom_proprietaire']); ?>
     </h1>
     <hr>
 

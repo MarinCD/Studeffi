@@ -25,7 +25,7 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<?php if (!empty($_SESSION)) { ?>
 							<li class="nav-item">
-								<a class="nav-link active" href="./index.php?page=res_main">
+								<a class="nav-link active" href="./index.php?page=compteur_main.php">
 									<i class="bi bi-building"></i>&nbsp;Gestion des compteurs
 								</a>
 							</li>

@@ -15,7 +15,7 @@ $meters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main class="container pt-3">
         <h1 class="text-start text-dark">
-            <i class="bi bi-lightning"></i> Gestion des compteurs d'électricité 
+            Gestion des compteurs d'électricité 
             <a href="./compteur_ajout_test.php"><i class="bi bi-plus-circle-fill text-success"></i></a>
         </h1>
         <hr>

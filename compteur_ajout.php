@@ -5,7 +5,7 @@ include 'includes/header.php';
 ?>
 <main class="container pt-3">
     <h1 class="text-start text-dark">
-        <i class="bi bi-lightning"></i> Gestion des compteurs - Ajout d'un compteur
+        Gestion des compteurs - Ajout d'un compteur
     </h1>
     <hr>
     <form action="compteur_ajout_exe.php" method="POST">
