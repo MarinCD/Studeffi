@@ -35,7 +35,7 @@
 					<?php 
 						$pageHeader = (!empty($_SESSION)) ? "./logout.php" : "./index.php?page=login";
 						$btnText = (!empty($_SESSION)) ? htmlspecialchars($_SESSION['username']) . '&nbsp;<i class="bi bi-box-arrow-right"></i>' : "Login";
-						$btnColor = (!empty($_SESSION)) ? 'warning text-dark' : "outline-light";
+						$btnColor = (!empty($_SESSION)) ? 'primary text-light' : "outline-light";
 					?>
 					<span class="navbar-text">
 						<a class="btn btn-<?php echo $btnColor; ?>" href="<?php echo htmlspecialchars($pageHeader); ?>">
